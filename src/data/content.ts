@@ -247,14 +247,16 @@ export const projects: Project[] = [
   },
   {
     "slug": "hr-analytics-dashboard",
-    "title": "Employee Attrition & Workforce Analytics",
-    "shortTitle": "Give workforce questions a clearer view.",
-    "category": "People analytics · Workforce reporting",
+    "title": "HR Diversity & Inclusion Analytics",
+    "shortTitle": "Explore representation across the workforce.",
+    "category": "People analytics · Diversity & inclusion",
     "client": "Confidential organization",
-    "domain": "Human resources / workforce analytics",
-    "sourceFile": "HR EMP ATTRITION.pbix",
+    "domain": "Human resources / diversity and inclusion",
+    "sourceFile": "HR Diversity Inclusion Dashboard.pbix",
     "reportPages": [
-      "Summary"
+      "Dashboard 1",
+      "Dashboard 2",
+      "Dashboard 3"
     ],
     "tags": [
       "Power BI",
@@ -265,23 +267,23 @@ export const projects: Project[] = [
       "DAX",
       "Power Query"
     ],
-    "description": "An aggregate workforce study of employee composition, attrition, department and job-role patterns.",
-    "challenge": "A useful HR overview needs consistent headcount and attrition definitions. Department and job-role patterns should be visible without exposing identifiable employee information.",
+    "description": "A diversity and inclusion reporting study of gender representation in hiring, promotions and turnover across workforce groups.",
+    "challenge": "Workforce representation needs to be reviewed across hiring, promotion and turnover stages. A shared view of age, region, job level and department helps teams investigate patterns with appropriate context.",
     "objectives": [
-      "Summarize total employees and workforce composition.",
-      "Explore attrition across departments, job roles and overtime groups.",
-      "Review business-travel and job-review patterns with appropriate context."
+      "Compare female and male representation in hiring and promotions.",
+      "Review FY20 leaver turnover rates across workforce groups.",
+      "Explore average time in grade for employees promoted in FY2021."
     ],
-    "sources": "Based on HR EMP ATTRITION.pbix. The source report does not identify an employer, so the portfolio uses the label Confidential organization. Public values and workforce groups are fictional aggregates.",
-    "approach": "Begin with workforce composition, then examine attrition across relevant groups. Present comparisons as descriptive patterns to be interpreted with HR context.",
-    "preparation": "The report uses department, job role, business travel, gender, overtime, attrition and job-review fields. Public examples use aggregated groups rather than individual employee records.",
-    "implementation": "Power BI measures summarize total employees and gender composition, with visual comparisons of attrition, department, job role, overtime, business travel and tenure with current managers.",
+    "sources": "Based on HR Diversity Inclusion Dashboard.pbix, published as HR Diversity Inclusion Dashboard in Power BI. The organization is not named in this portfolio. Until its public report is available, the website displays an illustrative workforce preview with synthetic values.",
+    "approach": "Review hiring, promotion and turnover measures together, then use age group, region group, job level and department filters to investigate differences in representation.",
+    "preparation": "The report provides age group, region group, job level and department slicers. Hiring and promotion comparisons distinguish female and male proportions, with reporting-year context retained for turnover and time-in-grade measures.",
+    "implementation": "The Power BI report presents hiring proportions, promotions this year, turnover rates for FY20 leavers and average time in grade for employees promoted in FY2021 across three dashboard pages.",
     "questions": [
-      "How is the workforce distributed across departments and roles?",
-      "Which groups show different attrition patterns?",
-      "What context is needed before interpreting overtime or job-review differences?"
+      "How does gender representation compare across hiring and promotion stages?",
+      "How do turnover patterns differ across age groups, regions, job levels and departments?",
+      "How does average time in grade vary among employees promoted in FY2021?"
     ],
-    "value": "A consistent workforce view supports planning and further investigation. This study does not establish attrition causes, assess individuals or claim a verified client engagement.",
+    "value": "The report supports structured discussions about workforce representation and career progression. Its aggregate comparisons describe patterns and need business context before drawing conclusions.",
     "variant": "hr",
     "color": "slate"
   }
