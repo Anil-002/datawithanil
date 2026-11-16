@@ -43,6 +43,17 @@ for (const client of ['leading food and beverage retail organization','AtliQ Mar
 const supply = await readFile(path.join(dist,'projects','supply-chain-inventory-analytics','index.html'),'utf8');
 assert(supply.includes('leading food and beverage retail organization'), 'Supply Chain uses requested client label');
 assert(supply.includes('synthetic'), 'Supply Chain figures are clearly identified as synthetic');
+assert(!/<iframe[ >]/.test(supply), 'Supply Chain retains its existing dashboard instead of a Power BI embed');
+for (const project of projectMetadata) {
+ const html = await readFile(path.join(dist, project.path.slice(1), 'index.html'), 'utf8');
+ for (const [, tag] of html.matchAll(/(<iframe\b[^>]*>)/g)) {
+  const src = tag.match(/\bsrc="([^"]+)"/)?.[1]?.replaceAll('&amp;', '&');
+  const url = new URL(src);
+  assert(url.origin === 'https://app.powerbi.com' && url.pathname === '/view' && url.searchParams.get('r'), `${project.path} embeds an actual public Power BI report link`);
+  assert(/\btitle="[^"]+"/.test(tag) && /allowFullScreen/i.test(tag), `${project.path} has a titled report and full-screen access`);
+  assert(html.includes('Open published report'), `${project.path} provides an external report fallback`);
+ }
+}
 const atliq = await readFile(path.join(dist,'projects','atliq-mart-fmcg-supply-chain','index.html'),'utf8');
 assert(atliq.includes('Rajendra Kumar Oram'), 'AtliQ adaptation preserves original report design credit');
 if (buildStaticHosting) {
