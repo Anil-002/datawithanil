@@ -30,8 +30,9 @@ function RouteEffects() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    const project = projects.find(p => pathname === `/projects/${p.slug}`);
-    const [title, description] = titles[pathname] || (project ? [`${project.title} | Data With Anil`, project.description] : ['Page Not Found | Data With Anil', 'Explore practical business intelligence and data analytics with Data With Anil.']);
+    const routePath = pathname.replace(/\/+$/, '') || '/';
+    const project = projects.find(p => routePath === `/projects/${p.slug}`);
+    const [title, description] = titles[routePath] || (project ? [`${project.title} | Data With Anil`, project.description] : ['Page Not Found | Data With Anil', 'Explore practical business intelligence and data analytics with Data With Anil.']);
     document.title = title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
@@ -39,7 +40,7 @@ function RouteEffects() {
     if (siteConfig.domain) {
       let canonical = document.querySelector('link[rel="canonical"]');
       if (!canonical) { canonical = document.createElement('link'); canonical.setAttribute('rel', 'canonical'); document.head.append(canonical); }
-      canonical.setAttribute('href', siteConfig.domain + pathname);
+      canonical.setAttribute('href', siteConfig.domain + routePath);
     }
     const main = document.querySelector<HTMLElement>('main');
     main?.focus({ preventScroll: true });
