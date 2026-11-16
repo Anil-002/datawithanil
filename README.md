@@ -14,6 +14,16 @@ To build the same static version outside the workflow, set `VITE_BASE_PATH=/data
 
 **The only contact channel shown is `anil0singh02@gmail.com`.** LinkedIn, WhatsApp, and booking links are intentionally omitted as requested.
 
+## Published Power BI reports
+
+`src/data/powerBIReports.ts` maps AtliQ, Blinkit, OLA, insurance, and HR Diversity Inclusion to their Power BI reports. The Supply Chain inventory showcase is excluded and keeps its current layout, filters, data, and wording.
+
+Set each `publicEmbedUrl` to the exact HTTPS `https://app.powerbi.com/view?r=...` link obtained from **File → Embed report → Publish to web (public)**. An ordinary Share link is not a public embed. Empty or invalid public links keep the clearly labelled synthetic preview, with an existing report link where available; Microsoft sign-in and report access may be required. Public links enable interactive reports on the detail pages and expanded views, while project cards remain sample thumbnails.
+
+Publish to web makes the report and all data in its semantic model anonymously accessible on the internet. Obtain the owner's approval and confirm that the source data is appropriate for public sharing before creating these links. Do not publish confidential client, employee, personal, or claims data. The local server and Vercel configuration permit frames only from `https://app.powerbi.com`.
+
+After adding verified public links, build and push the changed source to `main`. The existing GitHub Actions workflow publishes the website. Public report updates follow the Power BI report and model refresh; the website does not configure or schedule refreshes.
+
 ## Run locally
 
 Requires Node.js 22 or newer and npm.
@@ -41,9 +51,9 @@ Open the Vite URL, normally **http://127.0.0.1:5173**. Vite forwards `/api` requ
 ## What’s included
 
 - Home, Services, Projects, About, Process, Pricing, Contact, Privacy, and Terms pages.
-- Six case studies based on the supplied Power BI reports: food and beverage inventory, AtliQ Mart FMCG delivery, Blinkit commerce, OLA rider retention, Phoenix Assurance healthcare claims, and employee attrition.
+- Six case studies based on the supplied Power BI reports: food and beverage inventory, AtliQ Mart FMCG delivery, Blinkit commerce, OLA rider retention, Phoenix Assurance healthcare claims, and HR diversity and inclusion.
 - Working project filters, keyboard-accessible navigation, FAQs, and expanded dashboard previews.
-- Six interactive domain-specific dashboard previews with synthetic data, filters, calculated KPIs, charts, and expanded views. Supply Chain uses a new navy/teal inventory layout, new fictional products, and new figures.
+- Five public interactive Power BI reports on case-study pages and expanded views. Supply Chain keeps its existing navy/teal interactive inventory showcase and synthetic data. Project cards use sample previews or verified report topics.
 - An interactive five-step Excel reporting demonstration with a calculated sample revenue total.
 - Project inquiries with client and server validation, consent, loading and error states, duplicate protection, and real persistence.
 - A local file store for development and a secure server-side Supabase integration for production.
@@ -52,7 +62,7 @@ Open the Vite URL, normally **http://127.0.0.1:5173**. Vite forwards `/api` requ
 - Optional GA4 analytics behind an explicit opt-in, and an optional Search Console verification tag.
 - Vercel configuration, database schema, backend documentation, and automated backend tests.
 
-All published dashboard figures are **illustrative synthetic data**. Client / organization labels describe the supplied report context. They do not establish a commissioned engagement or endorsement. The HR employer is labelled Confidential organization because its name was not present. Supply Chain uses the exact requested label, leading food and beverage retail organization. The AtliQ source credits Rajendra Kumar Oram; that original report design credit is preserved. Your supplied portrait appears in the homepage introduction, founder section, and About page.
+Sample dashboard card previews and the Supply Chain showcase use **illustrative synthetic data**. The HR card shows verified report topics without sample figures. When a public Power BI link is configured, the corresponding project detail page displays the published report and its own figures. Client / organization labels describe the supplied report context. They do not establish a commissioned engagement or endorsement. The HR employer is labelled Confidential organization because its name was not present. Supply Chain uses the exact requested label, leading food and beverage retail organization. The AtliQ source credits Rajendra Kumar Oram; that original report design credit is preserved. Your supplied portrait appears in the homepage introduction, founder section, and About page.
 
 ## Inquiry behavior
 
