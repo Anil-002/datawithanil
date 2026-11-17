@@ -11,7 +11,7 @@ const loadPage = (name: string) => lazy(() => import('./pages/Pages').then(modul
 const Services = loadPage('ServicesPage'), Projects = loadPage('ProjectsPage'), ProjectDetails = loadPage('ProjectDetailPage'), About = loadPage('AboutPage'), Process = loadPage('ProcessPage'), Pricing = loadPage('PricingPage'), Contact = loadPage('ContactPage'), Privacy = loadPage('PrivacyPage'), Terms = loadPage('TermsPage'), NotFound = loadPage('NotFoundPage');
 
 export function Brand() {
-  return <Link to="/" className="brand" aria-label="Data With Anil home"><span className="brand-icon" aria-hidden="true"><i/><i/><i/></span><span>DATA<span className="brand-light"> WITH ANIL</span><small>TURNING DATA INTO DECISIONS</small></span></Link>;
+  return <Link to="/" className="brand" aria-label="Data With Anil home"><img className="brand-logo" src={`${siteConfig.basePath}images/datawithanil-logo.png`} alt="" width={1200} height={206}/></Link>;
 }
 
 const titles: Record<string, [string, string]> = {
